@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mallikarjuna Purni — Technical Trainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --chalkboard:#1E3D34;
+    --chalkboard-2:#16302A;
+    --paper:#F6F3EC;
+    --paper-2:#EFEADD;
+    --ink:#211F1A;
+    --ink-soft:#4A473F;
+    --chalk:#F2EFE6;
+    --chalk-yellow:#E4B94B;
+    --rule:#D9D2BE;
+    --focus:#1E3D34;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --paper:#221F1A; --paper-2:#2A2620; --ink:#EFEADD; --ink-soft:#C9C3B4; --rule:#3A362D; --chalkboard:#132A24; --chalkboard-2:#0D211C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#221F1A; --paper-2:#2A2620; --ink:#EFEADD; --ink-soft:#C9C3B4; --rule:#3A362D; --chalkboard:#132A24; --chalkboard-2:#0D211C;
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:"IBM Plex Sans", system-ui, sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--focus); outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){ *{animation:none !important; transition:none !important; scroll-behavior:auto !important;} }
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  /* HERO */
+  header.hero{
+    background:linear-gradient(180deg, var(--chalkboard), var(--chalkboard-2));
+    color:var(--chalk); padding:88px 0 72px; position:relative; overflow:hidden;
+  }
+  header.hero::after{
+    content:""; position:absolute; left:0; right:0; bottom:0; height:6px;
+    background:repeating-linear-gradient(90deg, var(--chalk-yellow) 0 22px, transparent 22px 34px);
+    opacity:.55;
+  }
+  .eyebrow-role{
+    font-family:"IBM Plex Mono", monospace; font-size:.85rem; letter-spacing:.02em;
+    color:var(--chalk-yellow); margin:0 0 18px;
+  }
+  h1.name{
+    font-family:"Fraunces", serif; font-weight:600; font-size:clamp(2.6rem, 6.4vw, 4.4rem);
+    line-height:1.02; margin:0 0 14px; max-width:11ch;
+  }
+  .tagline{
+    font-size:clamp(1.05rem, 2.2vw, 1.25rem); max-width:46ch; color:#DCE6E0; margin:0 0 34px;
+  }
+  .contact-row{
+    display:flex; flex-wrap:wrap; gap:10px 22px; font-family:"IBM Plex Mono", monospace; font-size:.88rem; color:#C9D6CF;
+  }
+  .contact-row span{white-space:nowrap;}
+  .contact-row a{text-decoration:underline; text-decoration-color:rgba(228,185,75,.6); text-underline-offset:3px;}
+  .contact-row a:hover{text-decoration-color:var(--chalk-yellow);}
+
+  /* SECTIONS */
+  main{padding:64px 0 40px;}
+  section{padding:38px 0; border-bottom:1px solid var(--rule);}
+  section:last-of-type{border-bottom:none;}
+  h2{
+    font-family:"Fraunces", serif; font-style:italic; font-weight:500; font-size:1.5rem;
+    margin:0 0 20px; color:var(--ink);
+  }
+  p{margin:0 0 14px; max-width:64ch; color:var(--ink-soft);}
+  p:last-child{margin-bottom:0;}
+
+  /* SKILLS */
+  .skill-group{margin-bottom:18px;}
+  .skill-group:last-child{margin-bottom:0;}
+  .skill-group h3{
+    font-family:"IBM Plex Sans"; font-weight:600; font-size:.92rem; margin:0 0 10px; color:var(--ink);
+  }
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-family:"IBM Plex Mono", monospace; font-size:.82rem; padding:5px 11px;
+    border:1px solid var(--rule); border-radius:3px; color:var(--ink-soft); background:var(--paper-2);
+  }
+
+  /* EXPERIENCE TIMELINE */
+  .timeline{position:relative; padding-left:26px;}
+  .timeline::before{
+    content:""; position:absolute; left:5px; top:8px; bottom:8px; width:1px; background:var(--rule);
+  }
+  .role{position:relative; padding-bottom:34px;}
+  .role:last-child{padding-bottom:0;}
+  .role::before{
+    content:""; position:absolute; left:-26px; top:6px; width:11px; height:11px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--chalk-yellow);
+  }
+  .role-head{display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 16px; align-items:baseline; margin-bottom:6px;}
+  .role-title{font-weight:600; color:var(--ink); font-size:1.05rem;}
+  .role-org{color:var(--ink-soft); font-size:.95rem;}
+  .role-date{font-family:"IBM Plex Mono", monospace; font-size:.8rem; color:var(--ink-soft); white-space:nowrap;}
+  .subhead{font-size:.85rem; font-weight:600; color:var(--ink); margin:14px 0 6px;}
+  ul{margin:0 0 4px; padding-left:20px; color:var(--ink-soft);}
+  li{margin-bottom:7px;}
+  li:last-child{margin-bottom:0;}
+
+  /* PROJECTS */
+  .project{padding:18px 0; border-top:1px solid var(--rule);}
+  .project:first-child{border-top:none; padding-top:0;}
+  .project-title{font-weight:600; color:var(--ink); margin-bottom:2px;}
+  .project-stack{font-family:"IBM Plex Mono", monospace; font-size:.78rem; color:var(--chalkboard); margin-bottom:8px;}
+  :root[data-theme="dark"] .project-stack{color:var(--chalk-yellow);}
+  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .project-stack{color:var(--chalk-yellow);} }
+
+  /* EDUCATION / CERTS */
+  .edu-item{margin-bottom:16px;}
+  .edu-item:last-child{margin-bottom:0;}
+  .edu-degree{font-weight:600; color:var(--ink);}
+  .edu-meta{font-size:.9rem; color:var(--ink-soft);}
+
+  footer{
+    padding:40px 0 64px; text-align:left;
+  }
+  footer p{font-size:.85rem; color:var(--ink-soft);}
+
+  @media (max-width:600px){
+    header.hero{padding:64px 0 52px;}
+    .contact-row{flex-direction:column; gap:8px;}
+    main{padding:44px 0 24px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow-role">Technical Trainer · Data Structures &amp; Algorithms</p>
+    <h1 class="name">Mallikarjuna Purni</h1>
+    <p class="tagline">Training student cohorts on company-specific hiring patterns and placement drives, so problem-solving practice maps directly to the interviews they're walking into.</p>
+    <div class="contact-row">
+      <span>Guntur, India</span>
+      <a href="mailto:purnimallikarjuna123@gmail.com">purnimallikarjuna123@gmail.com</a>
+      <a href="tel:+918919265880">+91 89192 65880</a>
+      <a href="https://www.linkedin.com/in/mallikarjuna-purni-a8185628b/">LinkedIn</a>
+      <a href="https://github.com/y22cd146-malli">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2>About</h2>
+    <p>Computer Science graduate currently training student cohorts at FACE Prep on Data Structures &amp; Algorithms, tailored to the hiring patterns of specific companies and upcoming placement drives. Comfortable breaking arrays, trees, graphs, sorting, searching, and dynamic programming into sessions that hold up under exam pressure and interview pressure alike.</p>
+    <p>Works across Java, Python, C, and C++, which keeps the training grounded in more than one syntax. Pairs classroom delivery with real engineering context — REST APIs, Git workflows, debugging — so the concepts survive contact with an actual codebase.</p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <h3>Training &amp; delivery</h3>
+      <div class="chips">
+        <span class="chip">Batch / classroom training</span>
+        <span class="chip">DSA curriculum delivery</span>
+        <span class="chip">Doubt resolution</span>
+        <span class="chip">Session planning</span>
+        <span class="chip">Mentoring</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Data structures &amp; algorithms</h3>
+      <div class="chips">
+        <span class="chip">Arrays &amp; strings</span>
+        <span class="chip">Linked lists</span>
+        <span class="chip">Stacks &amp; queues</span>
+        <span class="chip">Trees &amp; BST</span>
+        <span class="chip">Graphs</span>
+        <span class="chip">Sorting &amp; searching</span>
+        <span class="chip">Recursion</span>
+        <span class="chip">Dynamic programming</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <div class="chips">
+        <span class="chip">Java</span><span class="chip">Python</span><span class="chip">C++</span>
+        <span class="chip">C</span><span class="chip">JavaScript</span><span class="chip">SQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>Engineering &amp; cloud</h3>
+      <div class="chips">
+        <span class="chip">OOP &amp; design patterns</span>
+        <span class="chip">REST APIs</span>
+        <span class="chip">Microservices</span>
+        <span class="chip">AWS</span><span class="chip">Docker</span><span class="chip">Kubernetes</span>
+        <span class="chip">CI/CD</span><span class="chip">MySQL</span><span class="chip">PostgreSQL</span>
+        <span class="chip">Git</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h3>AI &amp; generative AI</h3>
+      <div class="chips">
+        <span class="chip">Large language models</span>
+        <span class="chip">Prompt engineering</span>
+        <span class="chip">LangChain</span>
+        <span class="chip">Retrieval-augmented generation (RAG)</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="timeline">
+
+      <div class="role">
+        <div class="role-head">
+          <div><span class="role-title">Technical Trainer &amp; Software Developer Intern</span> — <span class="role-org">FACE Prep</span></div>
+          <div class="role-date">Present</div>
+        </div>
+        <p class="subhead">Training &amp; mentoring</p>
+        <ul>
+          <li>Delivers structured, batch-based training on Data Structures &amp; Algorithms, customized to the hiring patterns of specific companies ahead of campus placement drives.</li>
+          <li>Simplifies complex topics — arrays, trees, graphs, sorting/searching, recursion, dynamic programming — into clear sessions for learners at varying skill levels.</li>
+          <li>Resolves student doubts and reviews problem-solving approaches, building interview readiness and independent confidence.</li>
+        </ul>
+        <p class="subhead">Software development</p>
+        <ul>
+          <li>Contributes to development, debugging, and testing of software applications, integrating REST APIs for data exchange between components.</li>
+          <li>Applies Git-based version control and collaborative workflows — the same standards taught to students.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div><span class="role-title">AI Fundamentals Intern</span> — <span class="role-org">IBM SkillsBuild</span></div>
+          <div class="role-date">2025</div>
+        </div>
+        <ul>
+          <li>Completed applied training in AI and Generative AI concepts through hands-on technical activities.</li>
+          <li>Explored modern AI techniques and AI-assisted development tooling within software workflows.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="role-head">
+          <div><span class="role-title">Cloud Virtual Intern</span> — <span class="role-org">AWS Academy</span></div>
+          <div class="role-date">2024</div>
+        </div>
+        <ul>
+          <li>Gained hands-on exposure to cloud computing, deployment, and cloud-based services.</li>
+          <li>Practiced REST API integration, testing, and deployment concepts within a cloud environment.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="project">
+      <div class="project-title">AI-Based Disease Prediction Platform</div>
+      <div class="project-stack">Python · Scikit-learn · Flask · REST API · React</div>
+      <p>Built and deployed a machine learning prediction model as a REST API service, applying core problem-solving and modular design concepts.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-title">Full Stack AI Chat Platform</div>
+      <div class="project-stack">React · JavaScript · REST API · Git / GitHub Actions</div>
+      <p>Developed an AI-powered application with REST API integration and a lightweight CI/CD workflow using GitHub Actions.</p>
+    </div>
+
+    <div class="project">
+      <div class="project-title">Full Stack Expense Tracker</div>
+      <div class="project-stack">React · JavaScript · REST API</div>
+      <p>Built data processing and categorization logic with REST API-based data exchange.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <div class="edu-item">
+      <div class="edu-degree">B.Tech, Computer Science &amp; Engineering (Data Science)</div>
+      <div class="edu-meta">RVR &amp; JC College of Engineering, Guntur — CGPA 8.64 · GATE 2025 Qualified · 2022–2026</div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">Intermediate (MPC)</div>
+      <div class="edu-meta">Sri Pratibha Junior College, Ongole — 95.2% · 2020–2022</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Certifications &amp; achievements</h2>
+    <ul>
+      <li>NPTEL — Problem Solving Through Programming in C (Elite + Silver)</li>
+      <li>NPTEL — Internet of Things (Elite + Silver)</li>
+      <li>GATE Qualified, 2025</li>
+      <li>2nd Prize — Spiday Web Technology, 2024</li>
+      <li>3rd Prize — The Web Battle, 2024</li>
+      <li>NCC "A" Certificate</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p>Guntur, India — open to technical training and software engineering roles.</p>
+</footer>
+
+</body>
+</html>
